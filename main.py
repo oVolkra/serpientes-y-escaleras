@@ -1,8 +1,6 @@
 from biblioteca import *
 
-comenzar = input("¡Bienvenido a serpientes y escaleras! ¿Desea jugar? (s/n): ").lower()
-while comenzar != 's' and comenzar != 'n':
-    comenzar = input("ERROR: Ingrese una opción válida (s/n): ").lower()
+comenzar = validar_datos_input("¡Bienvenido a serpientes y escaleras! ¿Desea jugar?", ['s', 'n']).lower()
 
 if comenzar == 's':
     usuario = pedir_usuario()
@@ -15,9 +13,9 @@ if comenzar == 's':
         borrar_pregunta(preguntas, pregunta)
         informar_posicion(posicion)
         representacion_tablero(tablero)
+        preguntas_restantes(preguntas)
         jugar = estado_juego(posicion, preguntas, usuario)
-   
 else:
-    print("¡Fin del juego!")
+    mensaje_fin_juego()
 
     
